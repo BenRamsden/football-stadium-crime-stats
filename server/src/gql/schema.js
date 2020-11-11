@@ -13,6 +13,7 @@ type Stadium {
     latitude: Float
     longitude: Float
     crimes: [Crime]
+    crimesReport: [CrimeCount]
 }
 
 type Crime {
@@ -24,5 +25,10 @@ type Crime {
 type CrimeOutcomeStatus {
     category: String!
     date: String!
+}
+
+type CrimeCount {
+    category: String!
+    count: Int!
 }
 `)

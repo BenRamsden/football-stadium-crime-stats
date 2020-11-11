@@ -47,5 +47,31 @@ export const getStadiums = async function () {
         })
     )
 
-    return teamsWithCrimes
+    const teamsWithCrimesReport = teamsWithCrimes.map(twcr => {
+        if(twcr.crimes===null) {
+            return {
+                ...twcr,
+                report: null,
+            }
+        }
+
+        const reportMap = twcr.crimes.reduce((acc,crime) => {
+            if(acc.hasOwnProperty(crime.category)===false) {
+                acc[crime.category] = 0
+            }
+            acc[crime.category] += 1
+            return acc
+        },{})
+
+        const report = Object.entries(reportMap).map(([category,count]) => ({
+            category,count,
+        }))
+
+        return {
+            ...twcr,
+            crimesReport: report,
+        }
+    })
+
+    return teamsWithCrimesReport
 }
