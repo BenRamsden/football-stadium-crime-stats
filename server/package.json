@@ -1,0 +1,37 @@
+{
+    "name": "server",
+    "version": "1.0.0",
+    "description": "",
+    "main": "server.js",
+    "scripts": {
+        "test": "jest",
+        "start": "node server",
+        "start:dev": "nodemon --exec babel-node server",
+        "build": "rm -rf build && mkdir build && babel -d ./build . --ignore node_modules"
+    },
+    "author": "",
+    "license": "ISC",
+    "dependencies": {
+        "axios": "^0.19.0",
+        "express": "^4.17.1",
+        "express-graphql": "^0.8.0",
+        "graphql": "^14.3.1",
+        "yargs": "^13.3.0"
+    },
+    "devDependencies": {
+        "@babel/cli": "^7.4.4",
+        "@babel/core": "^7.4.5",
+        "@babel/node": "^7.4.5",
+        "@babel/plugin-proposal-optional-chaining": "^7.9.0",
+        "@babel/preset-env": "^7.4.5",
+        "jest": "24.7.1",
+        "nodemon": "^1.19.1",
+        "prettier": "^2.0.5",
+        "pretty-quick": "^2.0.1",
+        "supertest": "^4.0.2"
+    },
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/BenRamsden/football-stadium-crime-stats"
+    }
+}
