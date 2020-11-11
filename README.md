@@ -19,6 +19,10 @@ query stadiums {
         date
       }
     }
+    crimesReport {
+      category
+      count
+    }
   }
 }
 ```

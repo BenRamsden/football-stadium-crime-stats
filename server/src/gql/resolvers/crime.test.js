@@ -28,6 +28,12 @@ describe('Crime Resolvers - Unit', () => {
                 ...t,
                 ...postcodeExpectedOutput[i],
                 crimes: crimeExpectedOutput,
+                crimesReport: [
+                    {
+                        category: 'violent-crime',
+                        count: 1,
+                    }
+                ]
             }))
         )
     })
