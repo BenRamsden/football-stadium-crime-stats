@@ -35,5 +35,5 @@ app.get('/', (req, res) => {
  * Listen
  */
 export default app.listen(4000, () =>
-    console.log(`Express GraphQL Server Now Running On localhost:${PORT}/graphql`),
+    console.log(`Express GraphQL Server Now Running On localhost:4000/graphql`),
 )

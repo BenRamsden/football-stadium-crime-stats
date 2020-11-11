@@ -17,6 +17,7 @@
         "express": "^4.17.1",
         "express-graphql": "^0.8.0",
         "graphql": "^14.3.1",
+        "postcode": "^5.0.0",
         "yargs": "^13.3.0"
     },
     "devDependencies": {
