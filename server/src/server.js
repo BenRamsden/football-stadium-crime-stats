@@ -1,7 +1,7 @@
 import express from 'express'
 import expressGraphQL from 'express-graphql'
-import resolvers from './src/gql/resolvers'
-import schema from './src/gql/schema'
+import resolvers from './gql/resolvers/index'
+import schema from './gql/schema'
 
 /**
  * Environment Variables

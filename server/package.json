@@ -4,10 +4,10 @@
     "description": "",
     "main": "server.js",
     "scripts": {
-        "test": "jest",
-        "start": "node server",
-        "start:dev": "nodemon --exec babel-node server",
-        "build": "rm -rf build && mkdir build && babel -d ./build . --ignore node_modules"
+        "test": "jest src/",
+        "start": "node build/server",
+        "start:dev": "nodemon --exec babel-node src/server",
+        "build": "rm -rf build && mkdir build && babel -d ./build ./src"
     },
     "author": "",
     "license": "ISC",
