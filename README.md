@@ -14,7 +14,17 @@ This is a GraphQL backend combining 3 APIs
 
 Tested with Node version 12.18.4
 
-#### Run commands
+#### Setup secrets
+
+An API Key is needed for the Football Data API. Create a .env file in the server directory, where the server can parse this from.
+
+```
+cd server
+echo "footballDataApiKey=***" >> .env
+```
+
+#### Run server
+
 ```
 npm install
 npm run start:dev
