@@ -4,9 +4,10 @@ import resolvers from './gql/resolvers/index'
 import schema from './gql/schema'
 
 /**
- * Environment Variables
+ * Environment Variables in .env file
+ * footballDataApiKey
  */
-const PORT = process.env.PORT || 4000
+require('dotenv').config()
 
 /**
  * Configuration
@@ -33,6 +34,6 @@ app.get('/', (req, res) => {
 /**
  * Listen
  */
-export default app.listen(PORT, () =>
+export default app.listen(4000, () =>
     console.log(`Express GraphQL Server Now Running On localhost:${PORT}/graphql`),
 )
