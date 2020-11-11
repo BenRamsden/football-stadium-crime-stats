@@ -1,3 +1,8 @@
+/**
+ * Network util to call football-data api
+ * Docs: https://www.football-data.org/documentation/quickstart
+ */
+
 import axios from 'axios'
 import { match, toNormalised } from 'postcode'
 

@@ -1,3 +1,8 @@
+/**
+ * Network util to call postcode lookup api
+ * Docs: https://postcodes.io/
+ */
+
 import axios from 'axios'
 
 export async function getPostcodes(postcodes) {
