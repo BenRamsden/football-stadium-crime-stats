@@ -11,7 +11,9 @@ export const getStadiums = async function () {
 
     // console.log("postcodes",postcodes)
 
-    // getCrimeData()
+    // const crime = await getCrimeData('2017-02','52.629729','-1.131592')
+
+    // console.log("crime",crime)
 
     return []
 }
