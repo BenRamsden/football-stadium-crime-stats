@@ -4,7 +4,6 @@
  */
 
 import axios from 'axios'
-import { match, toNormalised } from 'postcode'
 
 export async function getTeams() {
     const footballDataApiKey = process.env.footballDataApiKey
@@ -19,6 +18,7 @@ export async function getTeams() {
         id,
         name,
         address,
-        postcode: match(address).map(toNormalised)[0]
+        //regex wasn't working, take last 2 words from address sentence
+        postcode: address.split(" ").slice(-2).join(" ")
     }))
 }
