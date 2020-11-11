@@ -1,5 +1,6 @@
 import {getTeams} from "./football-data";
 import axios from 'axios'
+import {footballResponse} from "./mocks";
 
 jest.mock('axios')
 
@@ -11,32 +12,7 @@ describe('football-data integration', () => {
 
     test('data is returned', async () => {
 
-        axios.mockReturnValueOnce({
-            data: {
-                teams: [
-                    {
-                        id:57,
-                        name:"Arsenal FC",
-                        address:"75 Drayton Park London N5 1BU"
-                    },
-                    {
-                        id: 64,
-                        name: 'Liverpool FC',
-                        address: 'Anfield Road Liverpool L4 OTH',
-                    },
-                    {
-                        id: 73,
-                        name: 'Tottenham Hotspur FC',
-                        address: 'Bill Nicholson Way, 748 High Road London N17 OAP',
-                    },
-                    {
-                        id: 74,
-                        name: 'West Bromwich Albion FC',
-                        address: 'The Hawthorns West Bromwich B71 4LF',
-                    },
-                ]
-            }
-        })
+        axios.mockReturnValueOnce(footballResponse)
 
         const teams = await getTeams()
 
