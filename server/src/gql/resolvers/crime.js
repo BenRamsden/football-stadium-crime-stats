@@ -1,6 +1,7 @@
 import {getTeams} from "../../net/football-data";
 import {getPostcodes} from "../../net/postcode";
 import {getCrimeData} from "../../net/crime";
+import {crimeExpectedOutput} from "../../net/mocks";
 
 export const getStadiums = async function () {
     const teams = await getTeams()
@@ -30,7 +31,13 @@ export const getStadiums = async function () {
                 }
             }
 
-            const crimes = await getCrimeData('2017-2',twc.latitude,twc.longitude)
+            let crimes
+            try {
+                crimes = await getCrimeData('2017-2',twc.latitude,twc.longitude)
+            } catch(error) {
+                console.log("Error calling police api, using fake data",error.message)
+                crimes = crimeExpectedOutput
+            }
 
             return {
                 ...twc,
