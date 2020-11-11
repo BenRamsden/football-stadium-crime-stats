@@ -5,15 +5,39 @@ import {getCrimeData} from "../../net/crime";
 export const getStadiums = async function () {
     const teams = await getTeams()
 
-    console.log("teams",teams)
-
     const postcodes = await getPostcodes(teams.map(team => team.postcode))
 
-    console.log("postcodes",postcodes)
+    const teamsWithCoords = teams.map((t,i) => {
+        const postcode = postcodes[i]
 
-    const crime = await getCrimeData('2017-02','52.629729','-1.131592')
+        if(postcode.postcode !== t.postcode) {
+            throw new Error("teams postcodes index mismatch")
+        }
 
-    console.log("crime",crime)
+        return {
+            ...t,
+            ...postcode,
+        }
+    })
 
-    return []
+    const teamsWithCrimes = await Promise.all(
+        teamsWithCoords.map(async twc => {
+            if(twc.latitude===undefined) {
+                //Lat and lng could not be retrieved from postcode service
+                return {
+                    ...twc,
+                    crimes: null,
+                }
+            }
+
+            const crimes = await getCrimeData('2017-2',twc.latitude,twc.longitude)
+
+            return {
+                ...twc,
+                crimes,
+            }
+        })
+    )
+
+    return teamsWithCrimes
 }

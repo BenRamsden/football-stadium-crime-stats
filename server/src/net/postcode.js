@@ -15,11 +15,9 @@ export async function getPostcodes(postcodes) {
     })
 
     return response.data.result
-        //remove postcodes with no lat lng data
-        .filter(({result}) => result!==null)
-        .map(({query,result:{longitude,latitude}}) => ({
+        .map(({query,result}) => ({
             postcode: query,
-            longitude,
-            latitude,
+            longitude: result?.longitude,
+            latitude: result?.latitude,
         }))
 }
